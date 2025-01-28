@@ -1,68 +1,20 @@
-#home {
+/* Ajuste na imagem de fundo (home.png) */
+#banner {
     display: flex;
-    min-height: calc(100vh - 91px);
+    align-items: center;  /* Alinha a imagem verticalmente no centro */
+    justify-content: center;  /* Alinha a imagem horizontalmente no centro */
+    width: 70%;  /* Largura ajustada para não ocupar 100% da tela */
+    z-index: 2;
     position: relative;
 }
 
-#cta {
-    width: 35%;
-    display: flex;
-    flex-direction: column;
-    gap: 28px;
-    margin-top: 5%;
-}
-
-#cta .title {
-    font-size: 4rem;
-    color: var(--color-neutral-1);;
-}
-
-#cta .title span {
-    color: var(--color-primary-6);
-}
-
-#cta .description {
-    font-size: 1.2rem;
-}
-
-#cta_buttons {
-    display: flex;
-    gap: 24px;
-}
-
-#cta_buttons a {
-    text-decoration: none;
-    color: var(--color-neutral-1);;
-}
-
-#phone_button {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    background-color: #ffffff;
-    padding: 8px 14px;
-    font-weight: 500;
-    box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
-}
-
-#phone_button button {
-    box-shadow: none;
-}
-
-#banner {
-    display: flex;
-    align-items: start;
-    justify-content: end;
-    width: 70%;
-    z-index: 2;
-}
-
 #banner img {
-    height: 100%;
-    width: fit-content;
+    width: 100%;  /* Ajusta a largura para a largura do contêiner */
+    height: auto;  /* Mantém a proporção da imagem */
+    max-width: 100%;  /* Garante que a imagem não ultrapasse o limite do contêiner */
 }
 
+/* Ajuste na forma com borda arredondada (shape) */
 .shape {
     background-color: var(--color-primary-2);
     width: 50%;
@@ -71,30 +23,156 @@
     border-radius: 40% 30% 0% 20%;
     top: 0;
     right: 0;
-    z-index: 1;
+    z-index: 1;  /* Deixe o shape atrás dos outros elementos */
+    pointer-events: none;  /* Garante que o shape não interfira nos cliques */
 }
 
-@media screen and (max-width: 1170px) {
-    #home {
-        min-height: 100%;
-        padding-top: 0px;
-    }
+/* Ajustes para os botões de redes sociais */
+.social-media-buttons {
+    display: flex;
+    justify-content: center;  /* Centraliza os botões */
+    gap: 16px;  /* Ajusta o espaçamento entre os botões */
+    margin-top: 20px;  /* Espaço entre os botões e o conteúdo acima */
+}
 
-    #banner,
-    #banner img,
-    #home .shape {
-        display: none;
+/* Ajustes para telas grandes */
+@media screen and (min-width: 768px) {
+    #home {
+        display: flex;
+        justify-content: space-between;  /* Alinha os itens lado a lado */
+        min-height: 100vh;
+        padding-top: 0;
     }
 
     #cta {
-        width: 100%;
-        text-align: center;
+        width: 50%;  /* O CTA vai ocupar 50% da tela */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;  /* Alinha os itens à esquerda */
+        padding: 20px;
+        text-align: left;  /* Alinha o texto à esquerda */
+    }
+
+    #cta .title {
+        font-size: 4rem;  /* Tamanho padrão para telas grandes */
+        color: var(--color-neutral-1);
+    }
+
+    #cta .description {
+        font-size: 1.2rem;
+    }
+
+    #cta_buttons {
+        display: flex;
+        gap: 24px;
+    }
+
+    #phone_button {
+        display: flex;
+        gap: 8px;
         align-items: center;
+        background-color: #ffffff;
+        padding: 8px 14px;
+        font-weight: 500;
+        box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 12px;
+        text-decoration: none;  /* Remove o estilo de link */
+        color: inherit;  /* Herda a cor do texto */
+        margin-top: 20px;
     }
 }
 
+/* Ajustes para telas médias (tablets) */
+@media screen and (max-width: 768px) {
+    #home {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100%;
+    }
+
+    #banner {
+        display: none;  /* Esconde a imagem em telas menores */
+    }
+
+    .shape {
+        width: 100%;  /* Aumenta a largura da forma para cobrir toda a tela em dispositivos pequenos */
+        height: 40%;  /* Ajusta a altura para não cobrir o conteúdo */
+        position: absolute;
+        top: 10%;  /* Ajusta a posição para não sobrepor o conteúdo */
+        right: 0;
+        border-radius: 30% 30% 0 0;
+        z-index: 0;  /* Garantir que o conteúdo fique acima do shape */
+    }
+
+    .social-media-buttons {
+        justify-content: center;  /* Garante que os botões fiquem centralizados */
+        gap: 16px;  /* Mantém o espaçamento entre os botões */
+    }
+
+    #cta {
+        width: 100%;  /* Expande para toda a largura da tela */
+        text-align: center;
+        align-items: center;
+        margin-top: 10%;  /* Ajusta o espaçamento */
+    }
+
+    #cta .title {
+        font-size: 2.5rem;  /* Ajusta o título para telas médias */
+    }
+
+    #cta .description {
+        font-size: 1rem;  /* Ajusta a descrição para telas pequenas */
+    }
+
+    #cta_buttons {
+        flex-direction: column;  /* Organiza os botões verticalmente */
+        gap: 12px;
+    }
+
+    #phone_button {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        background-color: #ffffff;
+        padding: 8px 14px;
+        font-weight: 500;
+        box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 12px;
+        text-decoration: none;  /* Remove o estilo de link */
+        color: inherit;  /* Herda a cor do texto */
+        margin-top: 20px;
+    }
+}
+
+/* Ajuste para telas muito pequenas (celulares) */
 @media screen and (max-width: 450px) {
-    #phone_button button {
-        display: none;
+    #cta .title {
+        font-size: 1.8rem;  /* Ajusta o título para telas pequenas */
+    }
+
+    #cta .description {
+        font-size: 0.9rem;  /* Ajusta a descrição para telas pequenas */
+    }
+
+    #phone_button {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        background-color: #ffffff;
+        padding: 8px 14px;
+        font-weight: 500;
+        box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 12px;
+        text-decoration: none;  /* Remove o estilo de link */
+        color: inherit;  /* Herda a cor do texto */
+        margin-top: 20px;
+    }
+
+    /* Ajuste para os ícones sociais - Espaço entre eles */
+    .social-media-buttons a {
+        margin-right: 12px;  /* Espaço entre os ícones sociais */
     }
 }
