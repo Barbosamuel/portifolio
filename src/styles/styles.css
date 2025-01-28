@@ -36,12 +36,13 @@ section {
     padding: 28px 8%;
 }
 
+/* Ajustando o estilo do botão */
 .btn-default {
     border: none;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--color-primary-5);
+    background-color: var(--color-primary-5); /* Cor de fundo do botão */
     border-radius: 12px;
     padding: 10px 14px;
     font-weight: 600;
@@ -50,8 +51,21 @@ section {
     transition: background-color .3s ease;
 }
 
+/* Ajustando o link dentro do botão */
+.btn-default a {
+    color: #ffffff;  /* Cor do texto dentro do botão (branco) */
+    text-decoration: none;  /* Remove o sublinhado */
+    display: block;  /* Para garantir que o link ocupe o espaço do botão */
+}
+
+/* Efeito de hover no link */
+.btn-default a:hover {
+    color: #d1d1d1;  /* Cor para o texto quando passar o mouse */
+}
+
+/* Efeito de hover no botão */
 .btn-default:hover {
-    background-color: var(--color-primary-3);
+    background-color: var(--color-primary-3);  /* Cor de fundo ao passar o mouse */
 }
 
 .social-media-buttons {
