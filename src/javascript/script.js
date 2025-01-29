@@ -5,30 +5,29 @@ $(document).ready(function() {
     });
 
     const sections = $('section');
-    const navItems = $('.nav-item');
+    const navItems = $('.nav-item a');
 
     $(window).on('scroll', function () {
         const header = $('header');
-        const scrollPosition = $(window).scrollTop() - header.outerHeight();
+        const scrollPosition = $(window).scrollTop() + 100; // Ajustando para pegar melhor a posição
 
         let activeSectionIndex = 0;
 
-        if (scrollPosition <= 0) {
+        if (scrollPosition <= header.outerHeight()) {
             header.css('box-shadow', 'none');
         } else {
-            header.css('box-shadow', '5px 1px 5px rgba(0, 0, 0, 0.1');
+            header.css('box-shadow', '5px 1px 5px rgba(0, 0, 0, 0.1)');
         }
 
         sections.each(function(i) {
             const section = $(this);
-            const sectionTop = section.offset().top - 96;
-            const sectionBottom = sectionTop+ section.outerHeight();
+            const sectionTop = section.offset().top - 100;
+            const sectionBottom = sectionTop + section.outerHeight();
 
             if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
                 activeSectionIndex = i;
-                return false;
             }
-        })
+        });
 
         navItems.removeClass('active');
         $(navItems[activeSectionIndex]).addClass('active');
